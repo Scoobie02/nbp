@@ -1,6 +1,5 @@
 package pl.parser.nbp.domain;
 
-import lombok.NoArgsConstructor;
 import pl.parser.nbp.commons.Helper;
 
 import java.io.BufferedReader;
@@ -13,8 +12,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-
-@NoArgsConstructor
 class TableCodesProvider {
 
     private String BOOK_URL = "https://www.nbp.pl/kursy/xml/dir";

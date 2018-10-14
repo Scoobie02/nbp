@@ -1,10 +1,8 @@
 package pl.parser.nbp.dto;
 
-import lombok.Data;
 import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 
-@Data
 @XmlRootElement(name = "pozycja")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {"currencyName", "multiplier", "currencyCode", "buyRate", "sellRate"})
@@ -25,4 +23,15 @@ public class Position {
     @XmlElement(name = "kurs_sprzedazy")
     private BigDecimal sellRate;
 
+    public String getCurrencyCode() {
+        return currencyCode;
+    }
+
+    public BigDecimal getBuyRate() {
+        return buyRate;
+    }
+
+    public BigDecimal getSellRate() {
+        return sellRate;
+    }
 }

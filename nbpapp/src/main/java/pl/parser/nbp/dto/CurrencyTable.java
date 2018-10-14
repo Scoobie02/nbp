@@ -1,12 +1,9 @@
 package pl.parser.nbp.dto;
 
-import lombok.*;
 import javax.xml.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 
-@Data
-@NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "tabela_kursow")
 @XmlType(propOrder = { "tableNumber", "listingDate", "publicationDate", "positions"})
@@ -27,4 +24,18 @@ public class CurrencyTable {
     @XmlElement(name = "pozycja")
     private List<Position> positions;
 
+    public List<Position> getPositions() {
+        return positions;
+    }
+
+    @Override
+    public String toString() {
+        return "CurrencyTable{" +
+                "type='" + type + '\'' +
+                ", tableNumber='" + tableNumber + '\'' +
+                ", listingDate=" + listingDate +
+                ", publicationDate=" + publicationDate +
+                ", positions=" + positions +
+                '}';
+    }
 }

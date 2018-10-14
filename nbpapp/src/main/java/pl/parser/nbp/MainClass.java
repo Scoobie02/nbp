@@ -10,8 +10,8 @@ import java.util.List;
 
 public class MainClass {
 
-    public static void main(String[] args) throws Exception {
-
+    public static void main(String[] args) {
+    try{
         if (args.length != 3) {
             throw new ValidationException("Not enough entries");
         }
@@ -22,10 +22,13 @@ public class MainClass {
         PositionFacade positionFacade = new PositionFacade();
         List<Position> positions = positionFacade.findPositions(args[0], args[1], args[2]);
 
-        double[] buyRates = positions.stream().mapToDouble(position -> position.getBuyRate().doubleValue()).toArray();
+        double[] buyRates = positions.stream().mapToDouble(position  -> position.getBuyRate().doubleValue()).toArray();
         System.out.format("%.4f%n", Calculator.calculateAverage(buyRates));
 
         double[] sellRates = positions.stream().mapToDouble(position -> position.getSellRate().doubleValue()).toArray();
         System.out.format("%.4f%n", Calculator.calculateStandardDeviation(sellRates));
+    } catch (Exception e){
+        System.out.println(e.getMessage());
+    }
     }
 }
