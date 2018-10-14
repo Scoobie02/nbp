@@ -14,9 +14,9 @@ Steps to run program:
   > * go to target folder and run program with command below
   
 To run application use following command: 
-  
+```
   java -jar nbp.jar EUR 2013-01-28 2013-01-31 
-  
+```
 Where:
  * first param is one currency code available from (USD, EUR, CHF, GBP) 
  * second and third are dates which describe date range for currency tables
