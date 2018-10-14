@@ -9,19 +9,22 @@
 * [License and Author](#license-and-author)
 
 ## General info
-
-U can run this application with following command: 
+Steps to run program:
+  > * in 'nbpapp' folder run 'mvn install' command
+  > * go to target folder and run program with command below
   
-  java pl.parser.nbp.MainClass EUR 2013-01-28 2013-01-31 
+To run application use following command: 
+  
+  java -jar nbp.jar EUR 2013-01-28 2013-01-31 
   
 Where:
  * first param is one currency code available from (USD, EUR, CHF, GBP) 
- * second and third are dates which describe date range of currency tables
+ * second and third are dates which describe date range for currency tables
 
 Example result is output: 
 
-  4,1231 - average for given buy rates from currency tables
-  0,0123 - standard deviation for given sell rates from currency tables
+  4,1505 - average for given buy rates from currency tables
+  0,0125 - standard deviation for given sell rates from currency tables
  
 ## Technologies
 * Java 8
