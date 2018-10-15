@@ -4,34 +4,45 @@ import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 
 @XmlRootElement(name = "pozycja")
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"currencyName", "multiplier", "currencyCode", "buyRate", "sellRate"})
 public class Position {
 
-    @XmlElement(name = "nazwa_waluty")
-    private String currencyName;
-
-    @XmlElement(name = "przelicznik")
-    private long multiplier;
-
-    @XmlElement(name = "kod_waluty")
     private String currencyCode;
-
-    @XmlElement(name = "kurs_kupna")
     private BigDecimal buyRate;
-
-    @XmlElement(name = "kurs_sprzedazy")
     private BigDecimal sellRate;
 
     public String getCurrencyCode() {
         return currencyCode;
     }
 
+    @XmlElement(name = "kod_waluty")
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
+    }
+
     public BigDecimal getBuyRate() {
         return buyRate;
     }
 
+    @XmlElement(name = "kurs_kupna")
+    public void setBuyRate(BigDecimal buyRate) {
+        this.buyRate = buyRate;
+    }
+
     public BigDecimal getSellRate() {
         return sellRate;
+    }
+
+    @XmlElement(name = "kurs_sprzedazy")
+    public void setSellRate(BigDecimal sellRate) {
+        this.sellRate = sellRate;
+    }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "currencyCode='" + currencyCode + '\'' +
+                ", buyRate=" + buyRate +
+                ", sellRate=" + sellRate +
+                '}';
     }
 }
