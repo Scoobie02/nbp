@@ -1,4 +1,4 @@
-package pl.parser.nbp.commons;
+package pl.parser.nbp.validator;
 
 public class ValidationException extends Exception{
 

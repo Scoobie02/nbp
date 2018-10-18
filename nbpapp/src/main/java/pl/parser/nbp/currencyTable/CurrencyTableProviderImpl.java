@@ -1,6 +1,6 @@
-package pl.parser.nbp.domain;
+package pl.parser.nbp.currencyTable;
 
-import pl.parser.nbp.dto.CurrencyTable;
+import pl.parser.nbp.domain.CurrencyTable;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -9,9 +9,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-class CurrencyTableProvider {
+public class CurrencyTableProviderImpl implements CurrencyTableProvider {
 
-    List<CurrencyTable> provideCurrencyTables(List<String> tableCodes) throws MalformedURLException, JAXBException {
+    public List<CurrencyTable> provideCurrencyTables(List<String> tableCodes) throws MalformedURLException, JAXBException {
         List<CurrencyTable> currencyTables = new ArrayList<>();
         String TABLE_URL = "http://www.nbp.pl/kursy/xml/";
         String XML = ".xml";
@@ -23,7 +23,7 @@ class CurrencyTableProvider {
         return currencyTables;
     }
 
-    CurrencyTable searchForCurrencyTable(URL url) throws JAXBException {
+    public CurrencyTable searchForCurrencyTable(URL url) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(CurrencyTable.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         return (CurrencyTable) unmarshaller.unmarshal(url);

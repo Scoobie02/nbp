@@ -1,5 +1,5 @@
 @XmlJavaTypeAdapter(value = BigDecimalAdapter.class, type = BigDecimal.class)
-package pl.parser.nbp.dto;
+package pl.parser.nbp.domain;
 
     import pl.parser.nbp.commons.BigDecimalAdapter;
 

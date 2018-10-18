@@ -1,9 +1,8 @@
-package pl.parser.nbp.domain;
+package pl.parser.nbp.position;
 
 import org.junit.Before;
 import org.junit.Test;
-import pl.parser.nbp.dto.Position;
-
+import pl.parser.nbp.domain.Position;
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.List;

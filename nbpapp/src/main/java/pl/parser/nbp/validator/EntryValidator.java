@@ -1,20 +1,20 @@
-package pl.parser.nbp.domain;
+package pl.parser.nbp.validator;
 
 
 import org.apache.commons.lang3.ArrayUtils;
-import pl.parser.nbp.commons.Helper;
-import pl.parser.nbp.commons.ValidationException;
+import pl.parser.nbp.commons.DateHelper;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class BusinessValidator {
+public class EntryValidator implements Validator{
 
     private static final String[] ALLOWED_CURRENCY_CODES = {"USD", "EUR", "CHF", "GBH"};
     private static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-    public BusinessValidator(){}
+    public EntryValidator(){}
 
     public boolean validEntries(String currencyCode, String dateFrom, String dateTo) throws ValidationException, ParseException {
         return validateCurrencyCode(currencyCode) &&
@@ -56,13 +56,12 @@ public class BusinessValidator {
         Date from = dateFormat.parse(dateFrom);
         Date to = dateFormat.parse(dateTo);
 
-        int yearFrom = Helper.getYearFromDate(from);
-        int yearTo = Helper.getYearFromDate(to);
-        int thisYear = Helper.getYearFromDate(new Date());
+        int yearFrom = DateHelper.getYearFromDate(from);
+        int yearTo = DateHelper.getYearFromDate(to);
+        int thisYear = DateHelper.getYearFromDate(new Date());
 
         return ((yearFrom >= 2002 && yearFrom <= 2015) && yearTo == thisYear)
                 || ((yearTo >= 2002 && yearTo <= 2015) && (yearFrom >= 2002 && yearFrom <= 2015))
                 || ((yearFrom == thisYear) && (yearTo == thisYear));
     }
-
 }

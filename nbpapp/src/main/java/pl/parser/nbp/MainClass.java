@@ -1,10 +1,10 @@
 package pl.parser.nbp;
 
 import pl.parser.nbp.commons.Calculator;
-import pl.parser.nbp.commons.ValidationException;
-import pl.parser.nbp.domain.BusinessValidator;
-import pl.parser.nbp.domain.PositionFacade;
-import pl.parser.nbp.dto.Position;
+import pl.parser.nbp.validator.ValidationException;
+import pl.parser.nbp.validator.EntryValidator;
+import pl.parser.nbp.position.PositionFacade;
+import pl.parser.nbp.domain.Position;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ public class MainClass {
             throw new ValidationException("Not enough entries");
         }
 
-        BusinessValidator businessValidator = new BusinessValidator();
-        businessValidator.validEntries(args[0], args[1], args[2]);
+        EntryValidator entryValidator = new EntryValidator();
+        entryValidator.validEntries(args[0], args[1], args[2]);
 
         PositionFacade positionFacade = new PositionFacade();
         List<Position> positions = positionFacade.findPositions(args[0], args[1], args[2]);

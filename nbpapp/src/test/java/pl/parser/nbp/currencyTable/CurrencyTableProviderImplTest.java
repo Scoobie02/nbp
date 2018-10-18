@@ -1,8 +1,8 @@
-package pl.parser.nbp.domain;
+package pl.parser.nbp.currencyTable;
 
 import org.junit.Before;
 import org.junit.Test;
-import pl.parser.nbp.dto.CurrencyTable;
+import pl.parser.nbp.domain.CurrencyTable;
 
 import javax.xml.bind.JAXBException;
 import java.net.MalformedURLException;
@@ -12,13 +12,13 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class CurrencyTableProviderTest {
+public class CurrencyTableProviderImplTest {
 
     private CurrencyTableProvider currencyTableProvider;
 
     @Before
     public void setUp(){
-        this.currencyTableProvider = new CurrencyTableProvider();
+        this.currencyTableProvider = new CurrencyTableProviderImpl();
     }
 
     @Test

@@ -1,4 +1,4 @@
-package pl.parser.nbp.dto;
+package pl.parser.nbp.domain;
 
 import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
